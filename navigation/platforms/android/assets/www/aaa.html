@@ -1,0 +1,60 @@
+<div class="EventPic">
+            <img src="http://46.105.101.151:3000/api/picture/1460809263/large" style="position:absolute;top:0;left:0;width:100%">
+            <!--L'image de profil lorsque vous passez la sourie une popover apparaitre et montre le nom de
+            profil et lorsqu'on clique sur l'image detail profil s'affiche-->
+            <a href="#/profileDetail/55bf945f0e567e8c05d756ad">
+                <img src="http://46.105.101.151:3000/api/picture/1438791834/medium" ng-src="http://46.105.101.151:3000/api/picture/1438791834/medium" class="imageCreatorEvent" data-placement="left" popover-placement="left" popover="Redazione Wallaffix" popover-trigger="mouseenter">
+                
+            </a>
+            <!--Description sur image de chaque event: emplacement, date, heure, titre) -->
+            <div class="EventBottomContainer" ng-mouseleave="showDetailDescription(false, $index)" ng-mouseenter="showDetailDescription(true, $index)">
+              <div class="row long_add">
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                  <!--L'adresse le l'event-->
+                  <h5 class="EventAdd ng-binding" ng-click="gotoMappa(event.latEvent, event.lngEvent)">Palermo</h5>
+                </div>
+                <!--Distance le l'event-->
+                <div class="row style_marker">
+                  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 style_distance ng-binding">4454Km</div>
+
+                </div>
+              </div>
+              <div class="row">
+                <a href="#zoomEvent/57122e2f6b9be3a205cb4931">
+                  <!--Titre de l'event-->
+                  <div class="EventLabelsContainer" style="float: right;">
+                   <img>
+                  </div>
+                  <!--Marqueur pour la distance de l'event et le user-->
+                  <div class="EventLabelsContainer" style="float: left;">
+                    <!--Description de l'event lorsqu'on passe la souris sur le titre-->
+                    <center>
+                      <p class="EventTitle ng-binding">Cena tedesca @BirreriaGarzilli</p>
+                    </center>
+                    <div class="box ng-hide" ng-show="isDescShow[$index] &amp;&amp; event.description.length != 0">
+                      <div class="text ng-binding" style="height: 100px;" ng-bind-html="renderDescription(event.description)"><h3><b>Cena tedesca alla Birreria Warsteiner Garzilli</b></h3><div><b>Costo:</b> 22€ e 28 € (per due persone, coperto incluso)</div><div><br></div>I classici sapori della cucina tedesca si possono gustare alla&nbsp;<a target="_blank" href="https://www.facebook.com/Birreria-Warsteiner-Garzilli-860016647359861">Birreria Warsteiner Garzilli di Palermo</a>, con un nuovo appuntamento dedicato a chi ama i sapori forti.&nbsp;Per tutto il mese di aprile la birreria vi propone&nbsp;due nuovi menu tedeschi&nbsp;che vedono protagonista la carne, il pollo e le patate.&nbsp;<div><br></div><div>Il&nbsp;<span style="margin: 0px; padding: 0px;">primo menu</span>&nbsp;prevede due porzioni di antipasto di&nbsp;kartoffel puffer, se non conoscete il tedesco vi basta solo sapere che stiamo parlando di frittelle di patate, bacon e panna acida. Per secondo due piatti di&nbsp;tagliata di angus irlandese&nbsp;(angus irlandese, rucola, pomodorini, funghi crudi e scaglie di parmigiano). Per dessert non può mancare lo strudel di mele (due porzioni) e due calici&nbsp;di vino rosso. Il costo del menu è di&nbsp;<span style="margin: 0px; padding: 0px;">28 euro</span>&nbsp;(per due persone, coperto incluso).<br style="margin: 0px; padding: 0px;"><br style="margin: 0px; padding: 0px;">In alternativa potete scegliere il&nbsp;<span style="margin: 0px; padding: 0px;">secondo menu</span><span style="margin: 0px; padding: 0px;">&nbsp;che prevede ancora una volta due porzioni di&nbsp;antipasto di kartoffel puffer, e a seguire due piatti tedeschi tipici:&nbsp;lo schnitzel, gustose&nbsp;</span>cotolette di pollo di Norimberga<span style="margin: 0px; padding: 0px;">&nbsp;accompagnate da un contorno di patate alla tedesca.&nbsp;Per addolcirvi lo strudel di mele (due porzioni) e due&nbsp;calici&nbsp;di vino rosso. Il costo del menu è di&nbsp;</span><span style="margin: 0px; padding: 0px;">22 euro</span><span style="margin: 0px; padding: 0px;">&nbsp;(per due persone, coperto incluso).</span><br style="margin: 0px; padding: 0px;"><br style="margin: 0px; padding: 0px;">La Birreria Warsteiner Garzilli è aperta tutti i giorni dalle ore 18 fino a tarda notte. Per le prenotazioni telefoniche (consigliate) è possibile chiamare il numero 340.3550316 dalle ore 16 alle ore 22.</div></div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="row date_time">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8 ng-hide" ng-hide="event.isRepeated">
+                  <!--Date de l'event-->
+                  <h5 class="EventName ng-binding">Da OGGI fino a </h5>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8" ng-show="event.isRepeated">
+                  <!--Date de l'event-->
+                  <h5 class="EventName ng-binding">Da OGGI fino a  01/05/16</h5>
+                </div>  
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4" ng-show="event.isRepeated">
+                  <!--Temps de l'event-->
+                  <h5 class="EventTime ng-binding">20:00 - 02:00</h5>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4 ng-hide" ng-hide="event.isRepeated">
+                  <!--Temps de l'event-->
+                  <h5 class="EventTime ng-binding">20:00 - 02:00</h5>
+                </div>
+              </div>
+            </div>
+          </div>
