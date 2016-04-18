@@ -7,6 +7,3 @@ function loader_show(){
             html: ""
    				 });
 		}
-function loader_hide(){
-    $.mobile.loading( "hide" );
-}
