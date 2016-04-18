@@ -6,7 +6,6 @@
         <link rel="stylesheet"  href="libs/jQM-flat/jquery.mobile.flatui.css">
         <link rel="stylesheet" type="text/css" href="css/index.css" />
 		<SCRIPT language='javascript' src='js/soapclient.js'></SCRIPT>
-		<SCRIPT language='javascript' src='js/loader.js'></SCRIPT>
         <script type="text/javascript" src="libs/fastclick.min.js"></script>
         <script type="text/javascript" src="libs/jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="libs/jQueryMobile/jquery.mobile-1.3.2.min.js"></script>
@@ -153,7 +152,7 @@ padding: 15px;
 </style>
 		
 </head>
-<body onload="loader_show();">
+<body>
 <div data-role="page" id="index">
   <div data-role="header" data-position="fixed">
   </br>
@@ -187,16 +186,13 @@ localStorage.setItem("list",a.restaurant);
 }
 var b = localStorage.getItem("list");
       var mytabex=b.split("#");
-      var text="";
-      var text1="";
 	  var i=0;
       while (i!=((mytabex.length)-1)) 
 	  { 
-	    $("#zoneresto").append("<div class=col-md-12 col-sm-12><div class=blog-post><div class=blog-thumb> <img src="+mytabex[i+1]+"> </div> <div class=blog-content><div class=content-show><a onclick=window.location.href='accueil.html?restaurant="+mytabex[i]+"'>"+mytabex[i]+"</a><span>Adresse: "+mytabex[i+2]+"</span></div><div style='display: none;' class=content-hide><p></p></div></div></div> </div>");
+	    $("#zoneresto").append("<div class=col-md-12 col-sm-12><div class=blog-post><div class=blog-thumb> <img src="+mytabex[i+1]+"> </div> <div class=blog-content><div class=content-show><a onclick=window.location.href='accueil.html?restaurant="+mytabex[i]+"'>"+mytabex[i]+"</a><span>Adresse: "+mytabex[i+4]+"</span></div><div style='display: none;' class=content-hide><p></p></div></div></div> </div>");
 	    $("#recherche").append("<li><a onclick=window.location.href='accueil.html?restaurant="+mytabex[i]+"'>"+mytabex[i]+"<span class=ui-li-count> 10 km </span></a></li>");
-		i=i+3;
+		i=i+5;
       }
-loader_hide();
 </script> 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
