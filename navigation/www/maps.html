@@ -48,11 +48,11 @@
 				var b = localStorage.getItem("list");
 				var mytabex=b.split("#");
 				var i=0;
-				while (i!=((mytabex.length)-1)) 
+				while (i!=((mytabex.length)-5)) 
 	            {
 				lat=mytabex[i+3];
 				lon=mytabex[i+2];
-				i=i+5;
+				i=i+4;
                     var marker = new google.maps.Marker({
                         position: new google.maps.LatLng(lat,  lon),
                         map: map,
