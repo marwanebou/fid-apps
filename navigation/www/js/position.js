@@ -2,9 +2,8 @@
 $( document ).on( "pagecreate", "#map-page", function() {
 var defaultLatLng = new google.maps.LatLng(34.0983425, -118.3267434);
 if ( navigator.geolocation ) {
-function success(pos) {
+function success(pos) { 		
 // Location found, show map with these coordinates
-alert(pos.coords.longitude);
 drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
 }
 function fail(error) {
@@ -23,6 +22,11 @@ mapTypeId: google.maps.MapTypeId.ROADMAP
 };
 var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
 // Add an overlay to the map of current lat/lng
+var marker = new google.maps.Marker({
+position: latlng,
+map: map,
+title: "Greetings!"
+});
 var marker = new google.maps.Marker({
 position: latlng,
 map: map,
