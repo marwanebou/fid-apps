@@ -5,5 +5,5 @@ function loader_show(){
             theme:  $.mobile.loader.prototype.options.theme,
             textonly: false,
             html: ""
-   				 });
+   				  });
 		}

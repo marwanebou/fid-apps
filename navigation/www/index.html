@@ -199,7 +199,7 @@ function restau_callBack(a)
       localStorage.setItem("list", a.restaurant);
       var mytabex=a.restaurant.split("#");
 	  var i=0;
-      while (i<=((mytabex.length)-4)) 
+      while (i < ((mytabex.length)-4)) 
 	  {
 	   $("#zoneresto").append("<div class=col-md-12 col-sm-12><div class=blog-post><div class=blog-thumb> <img src="+mytabex[i+1]+"> </div> <div class=blog-content><div class=content-show><a onclick=window.location.href='accueil.html?restaurant="+mytabex[i]+"'>"+mytabex[i]+"</a></div><div style='display: none;' class=content-hide><p></p></div></div></div> </div>");
 	   $("#recherche").append("<li><a onclick=window.location.href='accueil.html?restaurant="+mytabex[i]+"'>"+mytabex[i]+"<span class=ui-li-count> 10 km </span></a></li>");
