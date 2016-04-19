@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "C:\\Documents and Settings\\ifs-devep1\\Bureau\\qr\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\drawable-land-xhdpi-v4\\screen.png",
+        "source": "C:\\Documents and Settings\\ifs-devep1\\Bureau\\qr\\platforms\\android\\res\\drawable-land-xhdpi\\screen.png"
+    },
+    {
+        "merged": "C:\\Users\\Marwane\\Desktop\\navigation\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\drawable-land-xhdpi-v4\\screen.png",
+        "source": "C:\\Users\\Marwane\\Desktop\\navigation\\platforms\\android\\res\\drawable-land-xhdpi\\screen.png"
+    },
+    {
+        "merged": "C:\\Documents and Settings\\ifs-devep1\\Bureau\\fidelite_app\\fidelite\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\drawable-land-xhdpi-v4\\screen.png",
+        "source": "C:\\Documents and Settings\\ifs-devep1\\Bureau\\fidelite_app\\fidelite\\platforms\\android\\res\\drawable-land-xhdpi\\screen.png"
+    },
+    {
+        "merged": "C:\\Documents and Settings\\ifs-devep1\\Bureau\\navigation\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\drawable-land-xhdpi-v4\\screen.png",
+        "source": "C:\\Documents and Settings\\ifs-devep1\\Bureau\\navigation\\platforms\\android\\res\\drawable-land-xhdpi\\screen.png"
+    },
+    {
+        "merged": "C:\\Users\\Marwane\\Desktop\\github\\navigation\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\drawable-land-xhdpi-v4\\screen.png",
+        "source": "C:\\Users\\Marwane\\Desktop\\github\\navigation\\platforms\\android\\res\\drawable-land-xhdpi\\screen.png"
+    },
+    {
+        "merged": "C:\\Documents and Settings\\ifs-devep1\\Bureau\\fidelite_app\\apps\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\drawable-land-xhdpi-v4\\screen.png",
+        "source": "C:\\Documents and Settings\\ifs-devep1\\Bureau\\fidelite_app\\apps\\platforms\\android\\res\\drawable-land-xhdpi\\screen.png"
+    },
+    {
+        "merged": "C:\\Documents and Settings\\ifs-devep1\\Bureau\\test1\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\drawable-land-xhdpi-v4\\screen.png",
+        "source": "C:\\Documents and Settings\\ifs-devep1\\Bureau\\test1\\platforms\\android\\res\\drawable-land-xhdpi\\screen.png"
+    },
+    {
+        "merged": "C:\\Documents and Settings\\ifs-devep1\\Bureau\\fidelite_app\\navigation\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\drawable-land-xhdpi-v4\\screen.png",
+        "source": "C:\\Documents and Settings\\ifs-devep1\\Bureau\\fidelite_app\\navigation\\platforms\\android\\res\\drawable-land-xhdpi\\screen.png"
+    }
+]
