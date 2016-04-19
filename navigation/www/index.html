@@ -5,9 +5,13 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=medium-dpi" />
         <link rel="stylesheet"  href="libs/jQM-flat/jquery.mobile.flatui.css">
         <link rel="stylesheet" type="text/css" href="css/index.css" />
+<<<<<<< HEAD
 		<SCRIPT language='javascript' src='js/soapclient.js'></SCRIPT>
 
         <script type="text/javascript" src="libs/fastclick.min.js"></script>
+=======
+		<script type="text/javascript" src="libs/fastclick.min.js"></script>
+>>>>>>> 4046cf207b0a0c0a25902f52911e6e939fab9741
         <script type="text/javascript" src="libs/jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="libs/jQueryMobile/jquery.mobile-1.3.2.min.js"></script>
 		<style>		
@@ -149,10 +153,8 @@ padding: 15px;
   }
   .col-sm-1 {
     width: 8.33333333%;
-  }
-  
-</style>
-		
+  } 
+</style>		
 </head>
 <body>
 <div data-role="page" id="index">
@@ -171,12 +173,13 @@ padding: 15px;
   <div data-role="footer" data-position="fixed">
     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" onclick=window.location.href='maps.html' data-icon="flat-location" >Map</a></li>
+                            <li><a id="map-button"  onclick=window.location.href='maps.html' data-icon="flat-location" >Map</a></li>
                             <li><a id="list-button" onclick=window.location.href='index.html' data-icon="flat-menu" data-theme="b">List</a></li>
 						</ul>
     </div>
   </div>
 </div>
+<<<<<<< HEAD
 	   <SCRIPT>
 		function loader_show(){
   			$.mobile.loading( "show", {
@@ -189,12 +192,17 @@ padding: 15px;
 		}
         loader_show()
 		</SCRIPT>
+=======
+
+<SCRIPT language='javascript' src='js/soapclient.js'></SCRIPT>
+>>>>>>> 4046cf207b0a0c0a25902f52911e6e939fab9741
 <script>
 localStorage.clear();
 var url1= "http://ws-ifsproject2016.rhcloud.com/server.php/Affiche_restaurant";
 var pl = new SOAPClientParameters();
 SOAPClient.invoke(url1,"Affiche_restaurant", pl, false, restau_callBack);
 function restau_callBack(a)
+<<<<<<< HEAD
 {
       localStorage.setItem("list", a.restaurant);
       var mytabex=a.restaurant.split("#");
@@ -204,6 +212,20 @@ function restau_callBack(a)
 	   $("#zoneresto").append("<div class=col-md-12 col-sm-12><div class=blog-post><div class=blog-thumb> <img src="+mytabex[i+1]+"> </div> <div class=blog-content><div class=content-show><a onclick=window.location.href='accueil.html?restaurant="+mytabex[i]+"'>"+mytabex[i]+"</a></div><div style='display: none;' class=content-hide><p></p></div></div></div> </div>");
 	   $("#recherche").append("<li><a onclick=window.location.href='accueil.html?restaurant="+mytabex[i]+"'>"+mytabex[i]+"<span class=ui-li-count> 10 km </span></a></li>");
 	   i=i+4;
+=======
+{     
+localStorage.setItem("list",a.restaurant);
+return; 
+}     
+	  var b=localStorage.getItem("list");
+      var mytabex=b.split("#");
+	  var i=0;
+      while (i!=((mytabex.length)-1)) 
+	  { 
+	    $("#zoneresto").append("<div class=col-md-12 col-sm-12><div class=blog-post><div class=blog-thumb> <img src="+mytabex[i+1]+"> </div> <div class=blog-content><div class=content-show><a onclick=window.location.href='accueil.html?restaurant="+mytabex[i]+"'>"+mytabex[i]+"</a><span>Adresse: "+mytabex[i+3]+"</span></div><div style='display: none;' class=content-hide><p></p></div></div></div> </div>");
+	    $("#recherche").append("<li><a onclick=window.location.href='accueil.html?restaurant="+mytabex[i]+"'>"+mytabex[i]+"<span class=ui-li-count> 10 km </span></a></li>");
+		i=i+1;
+>>>>>>> 4046cf207b0a0c0a25902f52911e6e939fab9741
       }
 }
 function loader_hide() {
@@ -215,6 +237,5 @@ loader_hide();
 </script> 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-
 </body>
 </html>

@@ -1,4 +1,15 @@
+$(document).ready(function() {
+            // execute
+            (function() {
+                // map options
+                var options = {
+                    zoom: 5,
+                    center: new google.maps.LatLng(39.909736, -98.522109), // centered US
+                    mapTypeId: google.maps.MapTypeId.TERRAIN,
+                    mapTypeControl: false
+                };
 
+<<<<<<< HEAD
 $( document ).on( "pagecreate", "#map-page", function() {
 var defaultLatLng = new google.maps.LatLng(34.0983425, -118.3267434);
 if ( navigator.geolocation ) {
@@ -29,11 +40,19 @@ function restau_callBack(a)
                     // init markers
                     var marker = new google.maps.Marker({
                         position: new google.maps.LatLng(latitude, longitude),
+=======
+                var map = new google.maps.Map(document.getElementById('map_canvas'), options);
+                for (var i = 0; i < 10; i++) {
+                    // init markers
+                    var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(Math.random(),Math.random()),
+>>>>>>> 4046cf207b0a0c0a25902f52911e6e939fab9741
                         map: map,
                         title: 'Click Me ' + i
                     });
 
                     // process multiple info windows
+<<<<<<< HEAD
                     (function(marker, i,adresse) {
                         // add click event
                         google.maps.event.addListener(marker, 'click', function() {
@@ -60,3 +79,17 @@ navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, ena
 drawMap(defaultLatLng);  // No geolocation support, show default map
 }
 });
+=======
+                    (function(marker, i) {
+                        // add click event
+                        google.maps.event.addListener(marker, 'click', function() {
+                            infowindow = new google.maps.InfoWindow({
+                                content: 'Hello, World!!'
+                            });
+                            infowindow.open(map, marker);
+                        });
+                    })(marker, i);
+                }
+            })();
+        });
+>>>>>>> 4046cf207b0a0c0a25902f52911e6e939fab9741
