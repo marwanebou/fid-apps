@@ -49,6 +49,13 @@ pl.add("nom_restaurant", nom_restaurant);
 SOAPClient.invoke(url, "Ajout_client_web", pl, false, inscription_callBack);
 function inscription_callBack(res)
 {
+if (res.bol == "erreur_code_barre")
+{
+localStorage.setItem("erreur_inscription", "Code à barre existe déja");	
+window.location.href='inscription.html';
+}
+else
+{
 if (res.bol)
 		{
 		localStorage.setItem("email",cordonne["email"]);
@@ -60,6 +67,7 @@ if (res.bol)
 		localStorage.setItem("erreur_inscription", "Ces informations existent déja pour un client");
 		window.location.href='inscription.html';
 		}
+}
 		
 }
 function loader_hide() 

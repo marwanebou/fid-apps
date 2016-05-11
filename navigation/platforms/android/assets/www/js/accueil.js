@@ -1,8 +1,8 @@
-javascript:window.history.forward(1);
 document.forms["formulaire"]["Nom"].value = localStorage.getItem("username");
-document.forms["formulaire"]["password"].value = localStorage.getItem("password");
+javascript:window.history.forward(1);
 var parameters = location.search.substring(1).split("=");
 var temp = parameters[1];
+localStorage.setItem("restaurant", parameters[2]);
 localStorage.setItem("nom_restaurant", temp);
 function login_client()
 {
@@ -38,6 +38,7 @@ SOAPClient.invoke(url,"login", pl, false, login_callBack);
 				if ((s.ch)=="0")
 					{
 						localStorage.setItem("erreur_login", "Mot de passe incorrect");
+						localStorage.setItem("username",Nom);
 						window.location.href='login.html';
 					}	
 				else if ((s.ch)=="1")

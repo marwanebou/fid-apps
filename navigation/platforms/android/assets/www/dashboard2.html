@@ -1,106 +1,38 @@
-<!DOCTYPE html>
-<html>
-    <head>
-		<meta name="format-detection" content="telephone=no" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
-		<script type="text/javascript" src="js/scroll.js"></script>
-		<link rel="stylesheet" href="css/li-scroller.css"/>
-		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-        <script type="text/javascript" src="js/fastclick.js"></script>
-<style>
-#out
-{
-left:210px;
-padding-left:15px;
-}
-#profile
-{
-left:10px;
-padding-left:15px;
-height:10px;
-}
-</style>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/dashboard.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+	<title>Responsive Sidebar Navigation | CodyHouse</title>
 </head>
-<script>
-$(function(){FastClick.attach(document.body);});
-</script>
 <body>
-<div data-role="header">
-<h1></h1>
-</div>
-<ul data-role="listview" >
-    <li>
-      <img id="image" src="img/bjork-live.png" height="100px">
-        <ul id="ticker01">
-			<h1 id="text"></h1>
-		</ul>   
-      <img id="wallet" src="img/Wallet.png" >
-	  <img id="localisation" src="img/localisation.png">
-		<p id="distance">20 km</p>
-	    <p id="points"></p>
-    </li>
-</ul>
-<div data-role="navbar" width="10%">
-	<ul>
-		<li>
-		 <a onclick="avantages();" >Avantages</a>
-		</li>
-		<li>
-	     <a onclick="details();">Détails</a>
-		</li>
-	</ul>
-</div>	
-<ul data-role="listview">
-<li id="avantages">
-</li>
-</ul>
-<ul data-role="listview">
-<li id="details">
-</li>
-</ul>
-
-<div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
-        <div id="navbar" data-role="navbar">
-                <ul>
-			   	     <li><a  id="user-button" onclick="logout();"      data-icon="ui-icon-delete" data-theme="b">Logout</a></li>
-                     <li><a  id="delete-button" onclick=window.location.href='update.html' data-icon="ui-icon-user">Profile</a></li>
-                </ul>
-        </div>
-</div>
-</body>  
-        <script type="text/javascript" src="js/logout.js"></script>
-		<SCRIPT language='javascript' src='js/soapclient.js'></SCRIPT>
-<script language='javascript'>
-function details()
-{
-//document.getElementById("avantages").innerHTML = "Acura";
-}
-function avantages()
-{
-//document.getElementById("details").innerHTML = "Acura5";
-}
-$(function(){$("#ticker01").liScroll();});
-javascript:window.history.forward(1);
-var nom_restaurant = localStorage.getItem("nom_restaurant");
-var IDClient = localStorage.getItem("IDClient");
-var url= "http://ws-ifsproject2016.rhcloud.com/server.php/affiche_client";
-var pl = new SOAPClientParameters();
-pl.add("nom_restaurant", nom_restaurant);
-pl.add("IDClient", IDClient);
-SOAPClient.invoke(url,"affiche_client", pl, false, affiche_callBack);		
-function affiche_callBack(s)	
-{
-document.getElementById("text").innerHTML = nom_restaurant;
-$("#points").append(s.tab.point+" Points");
-var test = s.tab.offre.split("#");
-var i=0;
-while (i < (test.length))
-{
-$("#avantages").append("<h1>"+test[i]+"</h1><br>");
-i=i+1;
-}
-}
-</script>
+<nav class="cd-side-nav">
+			<ul>		
+				<li class="overview active">
+					<a href="#0">Overview</a>
+				</li>
+				
+				<li class="notifications">
+					<a class="notifications" href="#0">Notifications<span class="count">4</span></a>
+				</li>
+				
+				<li class="comments ">
+					<a href="#0">Comments</a>
+				</li>
+				
+				<li class="users">
+					<a href="#0">Users</a>
+				</li>
+			
+				<li class="action-btn"><a href="#0">Logout</a></li>
+			</ul>
+</nav>
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/jquery.menu-aim.js"></script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+</body>
 </html>

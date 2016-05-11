@@ -12,7 +12,12 @@ function ajout_fid()
 	SOAPClient.invoke(url,"Ajout_fidelite_client_web", pl, false, login_callBack);
 function login_callBack(s)
 {
-if (s)
+if (s.ch == "erreur_code_barre")
+{
+			localStorage.setItem("erreur_activation","Code existe déja");
+			window.location.href='activer.html';	
+}
+if (s.ch)
 		{
 			alert("Votre fidelité est bien activé");
 			window.location.href='dashboard.html';

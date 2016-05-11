@@ -24,7 +24,7 @@ function initialize() {
 				var list = localStorage.getItem("list");
 				var tab=list.split("#");
 				var i=0;
-                while (i <= ((tab.length)-4))
+                while (i <= ((tab.length)-6))
 				{			 
 			           var marker = new google.maps.Marker({
                         position: new google.maps.LatLng(tab[i+3],tab[i+2]),
@@ -43,7 +43,7 @@ function initialize() {
                         });
                     })(marker, i);
 					
-					i=i+4;
+					i=i+6;
 				}
 				function loader_hide() 
 				{setTimeout(function(){	$.mobile.loading("hide");}, 1);}
@@ -86,11 +86,13 @@ function restau_callBack(a)
   localStorage.setItem("list", a.restaurant);
   var mytabex=a.restaurant.split("#");
   var i=0;
-  while (i < ((mytabex.length)-4)) 
-	  {
-		$("#zoneresto").append("<a onclick=window.location.href='accueil.html?restaurant="+mytabex[i]+"'><div class=col-md-12 col-sm-12><div class=blog-post><div class=blog-thumb> <img src="+mytabex[i+1]+"> </div> <div class=blog-content><div class=content-show><a onclick=window.location.href='accueil.html?restaurant="+mytabex[i]+"'>"+mytabex[i]+"</a></div><div style='display: none;' class=content-hide><p></p></div></div></div> </div></a>");
-		$("#recherche").append("<li><a onclick=window.location.href='accueil.html?restaurant="+mytabex[i]+"'>"+mytabex[i]+"</a></li>");
-		i=i+4;
+  var id_restaurant="";
+  while (i < ((mytabex.length))-6) 
+	  { 
+		id_restaurant="restaurant_"+mytabex[i+5]+"="+mytabex[i];
+		$("#zoneresto").append("<a onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"'><div class=col-md-12 col-sm-12><div class=blog-post><div class=blog-thumb> <img src="+mytabex[i+1]+"> </div> <div class=blog-content><div class=content-show><a onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"'>"+mytabex[i]+"</a></div><div style='display: none;' class=content-hide><p></p></div></div></div> </div></a>");
+		$("#recherche").append("<li><a onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"'>"+mytabex[i]+"</a></li>");
+		i=i+6;
 	  }
 }
 }
