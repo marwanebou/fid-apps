@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<merger version="3"><dataSet config="main"><source path="C:\Users\Marwane\Desktop\github\navigation\platforms\android\CordovaLib\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="C:\Users\Marwane\Desktop\github\navigation\platforms\android\CordovaLib\src\debug\jniLibs"/></dataSet></merger>
-=======
-<merger version="3"><dataSet config="main"><source path="C:\Documents and Settings\ifs-devep1\Bureau\home_work\fid-apps\navigation\platforms\android\CordovaLib\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="C:\Documents and Settings\ifs-devep1\Bureau\home_work\fid-apps\navigation\platforms\android\CordovaLib\src\debug\jniLibs"/></dataSet></merger>
->>>>>>> 4046cf207b0a0c0a25902f52911e6e939fab9741
+<merger version="3"><dataSet config="main"><source path="C:\Documents and Settings\ifs-devep1\Bureau\fid-apips\navigation\platforms\android\CordovaLib\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="C:\Documents and Settings\ifs-devep1\Bureau\fid-apips\navigation\platforms\android\CordovaLib\src\debug\jniLibs"/></dataSet></merger>

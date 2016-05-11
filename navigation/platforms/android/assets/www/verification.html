@@ -4,64 +4,15 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=medium-dpi" />
+		<script type="text/javascript" src="js/fastclick.js"></script>  
         <link rel="stylesheet"  href="libs/jQM-flat/jquery.mobile.flatui.css">
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-		<SCRIPT language='javascript' src='js/soapclient.js'></SCRIPT>
-<script>
-javascript:window.history.forward(1);
-
-function renvoyer()
-{
-var url= "http://ws-ifsproject2016.rhcloud.com/server.php/mailing";
-var nom_restaurant = localStorage.getItem("nom_restaurant");
-var nom="";
-var prenom="";
-var email = localStorage.getItem("email");
-var pl = new SOAPClientParameters();
-pl.add("nom_restaurant", nom_restaurant);
-pl.add("email", email);
-pl.add("nom", nom);
-pl.add("prenom", prenom);
-SOAPClient.invoke(url, "mailing", pl, true, renvoyer_callBack);
-
-function renvoyer_callBack(res)
-{
-
-alert("un nouveau code est envoyé");
-window.location.href="verification.html";		
-}
-
-}
-
-function verifier()
-{
-var url= "http://ws-ifsproject2016.rhcloud.com/server.php/verif_code";
-var nom_restaurant = localStorage.getItem("nom_restaurant");
-var email = localStorage.getItem("email");
-code = document.forms["formulaire"]["code"].value;
-var pl = new SOAPClientParameters();
-pl.add("nom_restaurant", nom_restaurant);
-pl.add("email", email);
-pl.add("code", code);
-SOAPClient.invoke(url, "verif_code", pl, true, verif_callBack);
-
-function verif_callBack(bol)
-{
-if (bol.res)
-		{
-		alert("Votre compte est activé");
-        window.location.href="login.html";		
-		}
-else 
-{
-		alert("Code incorrect");
-        window.location.href="verification.html";
-}
-}
-}
-</script>
+        <script type="text/javascript" src="libs/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="libs/jQueryMobile/jquery.mobile-1.3.2.min.js"></script>
 </head>
 <body>
+<script>
+$(function(){FastClick.attach(document.body);});
+</script>
 <div  id="verif-page" data-role="page">
 
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
@@ -78,16 +29,7 @@ else
 					<br>
 					<br>
 					<br>
-					<br>
-					<br>
-					<br>
 					<h1>Si le code de verification n'est pas reçu vous pouvez le renvoyer</h1>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
 					<br>
 					
 					<button data-theme="b" data-mini="false" class="ui-btn-hidden" aria-disabled="false" onclick ="return renvoyer()">Renvoyer le code</button>
@@ -96,10 +38,8 @@ else
 				</div>
 				
  </div>
-        <script type="text/javascript" src="libs/fastclick.min.js"></script>
-        <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="libs/jquery-2.0.3.min.js"></script>
-        <script type="text/javascript" src="libs/jQueryMobile/jquery.mobile-1.3.2.min.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>  
-</body>
+ </body>        
+     	<SCRIPT language='javascript' src='js/soapclient.js'></SCRIPT>
+		<SCRIPT language='javascript' src='js/verification.js'></SCRIPT>
+
 </html>

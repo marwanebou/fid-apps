@@ -558,6 +558,9 @@
         },
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.sp.qrcode"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.sp.qrcode"
         }
     },
     "dependent_plugins": {}
