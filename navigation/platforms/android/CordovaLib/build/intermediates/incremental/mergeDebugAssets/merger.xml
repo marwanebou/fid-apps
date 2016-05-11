@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Documents and Settings\ifs-devep1\Bureau\fid-apips\navigation\platforms\android\CordovaLib\assets"/></dataSet><dataSet config="debug"><source path="C:\Documents and Settings\ifs-devep1\Bureau\fid-apips\navigation\platforms\android\CordovaLib\src\debug\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\Documents and Settings\ifs-devep1\Bureau\fidelite_app\navigation\platforms\android\CordovaLib\assets"/></dataSet><dataSet config="debug"><source path="C:\Documents and Settings\ifs-devep1\Bureau\fidelite_app\navigation\platforms\android\CordovaLib\src\debug\assets"/></dataSet></merger>

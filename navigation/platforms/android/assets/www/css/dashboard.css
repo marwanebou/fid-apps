@@ -375,6 +375,7 @@ Sidebar
   width: 20%;
   background-color: #2c3136;
   bottom:0px;
+  width: 150px;
 }
 .cd-side-nav.nav-is-visible {
   opacity: 1;

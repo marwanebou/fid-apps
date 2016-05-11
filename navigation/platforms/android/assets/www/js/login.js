@@ -1,5 +1,4 @@
 document.forms["formulaire"]["Nom"].value = localStorage.getItem("username");
-document.forms["formulaire"]["password"].value = localStorage.getItem("password");
 javascript:window.history.forward(1);
 function login_client()
 {
@@ -36,6 +35,7 @@ var verif=r[0];
 if ((s.ch)=="0")
 {
 localStorage.setItem("erreur_login", "Mot de passe incorrect");
+localStorage.setItem("username",Nom);
 window.location.href='login.html';
 }
 else if ((s.ch)=="1")
