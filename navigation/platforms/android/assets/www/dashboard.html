@@ -83,12 +83,14 @@ function avantages()
 }
 $(function(){$("#ticker01").liScroll();});
 javascript:window.history.forward(1);
+var id_restaurant = localStorage.getItem("id_restaurant");
 var nom_restaurant = localStorage.getItem("nom_restaurant");
 var restaurant = localStorage.getItem("restaurant");
 var IDClient = localStorage.getItem("IDClient");
 var url= "http://ws-ifsproject2016.rhcloud.com/server.php/affiche_client";
 var pl = new SOAPClientParameters();
 pl.add("nom_restaurant", nom_restaurant);
+pl.add("id_restaurant", id_restaurant);
 pl.add("IDClient", IDClient);
 SOAPClient.invoke(url,"affiche_client", pl, false, affiche_callBack);		
 function affiche_callBack(s)	

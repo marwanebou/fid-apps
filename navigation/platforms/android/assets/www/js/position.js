@@ -90,7 +90,7 @@ function restau_callBack(a)
   while (i < ((mytabex.length))-6) 
 	  { 
 		id_restaurant="restaurant_"+mytabex[i+5]+"="+mytabex[i];
-		$("#zoneresto").append("<a onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"'><div class=col-md-12 col-sm-12><div class=blog-post><div class=blog-thumb> <img src="+mytabex[i+1]+"> </div> <div class=blog-content><div class=content-show><a onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"'>"+mytabex[i]+"</a></div><div style='display: none;' class=content-hide><p></p></div></div></div> </div></a>");
+		$("#zoneresto").append("<a onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"'><div class=col-md-12 col-sm-12><div class=blog-post><div class=blog-thumb> <img src='data:image/jpeg;base64,"+mytabex[i+1]+"'> </div> <div class=blog-content><div class=content-show><a onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"'>"+mytabex[i]+"</a></div><div style='display: none;' class=content-hide><p></p></div></div></div> </div></a>");
 		$("#recherche").append("<li><a onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"'>"+mytabex[i]+"</a></li>");
 		i=i+6;
 	  }

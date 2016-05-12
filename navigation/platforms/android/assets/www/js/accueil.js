@@ -2,6 +2,9 @@ document.forms["formulaire"]["Nom"].value = localStorage.getItem("username");
 javascript:window.history.forward(1);
 var parameters = location.search.substring(1).split("=");
 var temp = parameters[1];
+var id = parameters[1].split("_");
+var id_restaurant = id[1];
+localStorage.setItem("id_restaurant",id_restaurant);
 localStorage.setItem("restaurant", parameters[2]);
 localStorage.setItem("nom_restaurant", temp);
 function login_client()
