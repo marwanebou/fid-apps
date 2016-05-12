@@ -1,0 +1,54 @@
+<html ng-app="ionicApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Simple List</title> 
+    <link href="http://code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+    <script src="http://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+  </head>
+<style>
+</style>
+  <body ng-controller="MyCtrl">
+    <ion-content>
+
+      <div class="list">
+
+        <a ng-repeat="item in items" 
+           onclick='window.location.href="{{item.id}}"'
+           class="item item-thumbnail-left">
+
+          <img ng-src="{{ item.image }}">
+          <h2>{{ item.album }}</h2>
+          <h4>{{ item.artist }}</h4>
+        </a>
+
+      </div>
+
+    </ion-content>
+
+  </body>
+ <script script src='js/soapclient.js'> </script>
+ <SCRIPT>
+var url1= "http://ws-ifsproject2016.rhcloud.com/server.php/Affiche_restaurant";
+var pl = new SOAPClientParameters();
+SOAPClient.invoke(url1,"Affiche_restaurant", pl, false, restau_callBack);
+function restau_callBack(a)
+{    
+  var mytabex=a.restaurant.split("#");
+  var i=0;
+  var j=[];
+  var id_restaurant="";
+  while (i < ((mytabex.length))-6) 
+	  { 
+		
+		    j[i]={id: i, album: "mytabex[i]", artist: mytabex[i], image: "data:image/jpeg;base64,"+mytabex[i+1]};
+			angular.module('ionicApp', ['ionic'])
+			.controller('MyCtrl', function($scope) 
+			{ 
+			$scope.items = j;
+			});
+		i=i+6;
+	  }
+}
+</script>
+</html>
