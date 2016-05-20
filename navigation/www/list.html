@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet"  href="libs/jQM-flat/jquery.mobile.flatui.css">
+		<link rel="stylesheet"  href="css/div.css">
+		<link rel="stylesheet"  href="css/index.css">
+		<script type="text/javascript" src="libs/jquery-2.0.3.min.js"></script>
+		<script type="text/javascript" src="libs/jQueryMobile/jquery.mobile-1.3.2.min.js"></script>
+</head>
+<body>
+<div id="index" data-role="page" >
+  <div id="heade" data-role="header" data-position="fixed">
+    <ul id="recherche" class="ui-filterable" data-role="listview"  data-filter="true" data-filter-placeholder="Recherche" data-theme="f" data-filter-reveal="true" >
+	</ul>
+  </div>
+  <div data-role="main" class="ui-content">
+  <div class="bhim" id="zoneresto"> 
+  </div>
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <div id="navbar" data-role="navbar">
+        <ul>
+			<li><a id="map-button"  href='index.html' data-icon="flat-location" >Map</a></li>
+			<li><a id="list-button" href='list.html' data-icon="flat-menu" data-theme="b">List</a></li>
+		</ul>
+    </div>
+  </div>
+</div>
+</body> 
+		
+		<script type="text/javascript" src="js/soapclient.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="cordova.js"></script>
+</html>

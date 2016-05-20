@@ -1,31 +1,14 @@
-
-$( document ).on( "pagecreate", "#map-page", function() {
-var defaultLatLng = new google.maps.LatLng(34.0983425, -118.3267434);
-if ( navigator.geolocation ) {
-function success(pos) {
-// Location found, show map with these coordinates
-drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+javascript:window.history.forward(1);
+var restaurant = localStorage.getItem("list");
+alert(restaurant);
+var mytabex=restaurant.split("#");
+var i=0;
+var id_restaurant="";
+while (i < ((mytabex.length)-6)) 
+{ 
+	id_restaurant="restaurant_"+mytabex[i+4]+"="+mytabex[i];
+	$("#zoneresto").append("<div class=col-md-12 col-sm-12><div class=blog-post><div class=blog-thumb> <img onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"' src='http://ws-ifsproject2016.rhcloud.com/img/"+mytabex[i+4]+".png'> </div> <div class=blog-content><div class=content-show><h1>"+mytabex[i]+"</h1></div><div style='display: none;' class=content-hide></div></div></div> </div>");
+	$("#recherche").append("<li><a onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"'>"+mytabex[i]+"</a></li>");
+	$("#recherche1").append("<li><a onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"'>"+mytabex[i]+"</a></li>");
+	i=i+6;
 }
-function fail(error) {
-drawMap(defaultLatLng);  // Failed to find location, show default map
-}
-// Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
-navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
-} else {
-drawMap(defaultLatLng);  // No geolocation support, show default map
-}
-function drawMap(latlng) {
-var myOptions = {
-zoom: 10,
-center: latlng,
-mapTypeId: google.maps.MapTypeId.ROADMAP
-};
-var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-// Add an overlay to the map of current lat/lng
-var marker = new google.maps.Marker({
-position: latlng,
-map: map,
-title: "Greetings!"
-});
-}
-});
