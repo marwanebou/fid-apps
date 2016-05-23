@@ -1,3 +1,23 @@
+localStorage.clear();
+var url1= "http://ws-ifsproject2016.rhcloud.com/server.php/Affiche_restaurant";
+var pl = new SOAPClientParameters();
+SOAPClient.invoke(url1,"Affiche_restaurant", pl, false, restau_callBack);
+function restau_callBack(a)
+{    
+  localStorage.setItem("list", a.restaurant);
+  var mytabex=a.restaurant.split("#");
+  var i=0;
+  var id_restaurant="";
+  while (i < ((mytabex.length))-6) 
+	  { 
+		id_restaurant="restaurant_"+mytabex[i+5]+"="+mytabex[i];
+		alert(mytabex[i+5]);
+		$("#zoneresto").append("<a onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"'><div class=col-md-12 col-sm-12><div class=blog-post><div class=blog-thumb> <img src='img/logo.png"'> </div> <div class=blog-content><div class=content-show><a onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"'>"+mytabex[i]+"</a></div><div style='display: none;' class=content-hide><p></p></div></div></div> </div></a>");
+		$("#recherche").append("<li><a onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"'>"+mytabex[i]+"</a></li>");
+		$("#recherche1").append("<li><a onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"'>"+mytabex[i]+"</a></li>");
+		i=i+6;
+	  }
+}
 function initialize() { 
 				$.mobile.loading( "show", {
 				text: "loading..",
@@ -24,10 +44,10 @@ function initialize() {
 				var list = localStorage.getItem("list");
 				var tab=list.split("#");
 				var i=0;
-                while (i <= ((tab.length)-5))
+                while (i <= ((tab.length)-6))
 				{			 
 			           var marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(tab[i+2],tab[i+1]),
+                        position: new google.maps.LatLng(tab[i+3],tab[i+2]),
                         map: map,
                         title: 'Click Me ' + i
                     });
@@ -43,7 +63,7 @@ function initialize() {
                         });
                     })(marker, i);
 					
-					i=i+5;
+					i=i+6;
 				}
 				function loader_hide() 
 				{setTimeout(function(){	$.mobile.loading("hide");}, 1);}
@@ -63,37 +83,11 @@ function initialize() {
 					} 	
 				}
 				navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});			
-			}			
+}			
 google.maps.event.addDomListener(window, 'load', initialize); 	
 document.addEventListener("offline", onOfline, false);
 function onOfline() 
 {
 alert("Verifier votre connexion internet");
 }	
-if (localStorage.getItem("username") != null)
-{
-window.location.href='dashboard.html';
-}
-else 
-{
-javascript:window.history.forward(1);
-localStorage.clear();
-var url1= "http://ws-ifsproject2016.rhcloud.com/server.php/Affiche_restaurant";
-var pl = new SOAPClientParameters();
-SOAPClient.invoke(url1,"Affiche_restaurant", pl, false, restau_callBack);
-function restau_callBack(a)
-{    
-  localStorage.setItem("list", a.restaurant);
-  var mytabex=a.restaurant.split("#");
-  var i=0;
-  var id_restaurant="";
-  while (i < ((mytabex.length))-5) 
-	  { 
-		id_restaurant="restaurant_"+mytabex[i+4]+"="+mytabex[i];
-		$("#zoneresto").append("<a onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"'><div class=col-md-12 col-sm-12><div class=blog-post><div class=blog-thumb> <img src='http://ws-ifsproject2016.rhcloud.com/"+mytabex[i+4]+".png'> </div> <div class=blog-content><div class=content-show><a onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"'>"+mytabex[i]+"</a></div><div style='display: none;' class=content-hide><p></p></div></div></div> </div></a>");
-		$("#recherche").append("<li><a onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"'>"+mytabex[i]+"</a></li>");
-		$("#recherche1").append("<li><a onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"'>"+mytabex[i]+"</a></li>");
-		i=i+5;
-	  }
-}
-}
+

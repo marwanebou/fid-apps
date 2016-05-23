@@ -1,4 +1,3 @@
-document.forms["formulaire"]["Nom"].value = localStorage.getItem("username");
 javascript:window.history.forward(1);
 function login_client()
 {
