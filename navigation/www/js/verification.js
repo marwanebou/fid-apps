@@ -32,19 +32,20 @@ var pl = new SOAPClientParameters();
 pl.add("nom_restaurant", nom_restaurant);
 pl.add("email", email);
 pl.add("code", code);
-SOAPClient.invoke(url, "verif_code", pl, true, verif_callBack);
-
+SOAPClient.invoke(url, "verif_code", pl, false, verif_callBack);
 function verif_callBack(bol)
 {
-if (bol.res)
+if (bol.res != "true")
 		{
-		alert("Votre compte est activé");
-        window.location.href="login.html";		
+		alert("Code incorrect");
+		alert(bol.res);
+        window.location.href="verification.html";
 		}
 else 
 {
-		alert("Code incorrect");
-        window.location.href="verification.html";
+		alert("Votre compte est activé");
+		alert(bol.res);
+        window.location.href="login.html";
 }
 }
 }

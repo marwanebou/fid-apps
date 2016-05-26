@@ -1,12 +1,9 @@
+document.forms["formulaire"]["Nom"].value = localStorage.getItem("username");
 var parameters = location.search.substring(1).split("=");
 var temp = parameters[1];
 var id = parameters[1].split("_");
 var id_restaurant = id[1];
-alert("id ="+id_restaurant);
-alert("nom ="+parameters[2]);
-alert("nom_restaurant  ="+temp);
 localStorage.setItem("id_restaurant",id_restaurant);
-localStorage.setItem("restaurant", parameters[2]);
 localStorage.setItem("nom_restaurant", temp);
 function login_client()
 {
@@ -48,6 +45,7 @@ SOAPClient.invoke(url,"login", pl, false, login_callBack);
 				else if ((s.ch)=="1")
 					{
 						localStorage.setItem("erreur_login", "Login et mot de passe incorrects");
+						localStorage.setItem("username","");
 						window.location.href='login.html';
 					}	
 				else 

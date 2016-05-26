@@ -3,12 +3,11 @@
     <head>
 		<meta name="format-detection" content="telephone=no" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="js/fastclick.js"></script>
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
-		<script type="text/javascript" src="js/scroll.js"></script>
-		<link rel="stylesheet" href="css/li-scroller.css"/>
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-        <script type="text/javascript" src="js/fastclick.js"></script>
+		<SCRIPT language='javascript' src='js/logout.js'></SCRIPT>
 		<style>
 		#out
 			{
@@ -21,88 +20,102 @@
 				padding-left:15px;
 				height:10px;
 			}
+			#wallet
+			{
+			position:absolute;
+			padding-left:114px;
+			bottom:9px;
+			width:20px;
+			height:20px;
+			}
+			#points
+			{
+			position:absolute;
+			padding-left:140px;
+			bottom:2px;
+			}
 		</style>
 </head>
 <script>
 $(function(){FastClick.attach(document.body);});
 </script>
 <body>
-<div data-role="header">
-<h1></h1>
+<div id="index" data-role="page" >
+<div id="nom" data-role="header">
 </div>
 <ul data-role="listview" >
     <li>
-      <img id="image" src="img/bjork-live.png" height="100px">
+      <img id="image"  height="100px">
         <ul id="ticker01">
 			<h1 id="text"></h1>
-		</ul>   
-      <img id="wallet" src="img/Wallet.png" >
-	  <img id="localisation" src="img/localisation.png">
-		<p id="distance">20 km</p>
+		</ul>
+		<img id="wallet" src="img/Wallet.png">
 	    <p id="points"></p>
     </li>
 </ul>
-<div data-role="navbar" width="10%">
+<div data-role="navbar" data-grid="b">
 	<ul>
-		<li>
-		 <a onclick="avantages();" >Avantages</a>
-		</li>
-		<li>
-	     <a onclick="details();">Détails</a>
-		</li>
+		<li><a onclick="avantages();">Avantages</a></li>
+		<li><a onclick="offre();">Offres</a></li>
+		<li><a onclick="macarte();">Ma Carte</a></li>
 	</ul>
 </div>	
-<ul data-role="listview">
-<li id="avantages">
-</li>
-</ul>
-<ul data-role="listview">
-<li id="details">
-</li>
-</ul>
-<div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
-        <div id="navbar" data-role="navbar">
-                <ul>
-			   	     <li><a  id="user-button" onclick="logout();"      data-icon="ui-icon-delete" data-theme="b">Logout</a></li>
-                     <li><a  id="delete-button" onclick=window.location.href='update.html' data-icon="ui-icon-user">Profile</a></li>
-                </ul>
-        </div>
+<div id="avantage"></div>
+<div id="offre"></div>
+<div id="carte">
 </div>
-</body>  
-        <script type="text/javascript" src="js/logout.js"></script>
-		<SCRIPT language='javascript' src='js/soapclient.js'></SCRIPT>
+<div data-role="footer" data-position="fixed">
+<div data-role="navbar">
+	<ul>
+	<li><a onclick="logout();" data-icon="grid" class="ui-btn-active">Logout</a></li>
+	<li><a onclick=window.location.href='update.html' data-icon="gear">Profile</a></li>
+	</ul>
+</div>
+</div>
+</div>
+</body> 
+<SCRIPT language='javascript' src='js/soapclient.js'></SCRIPT>
+
 <script language='javascript'>
-function details()
-{
-//document.getElementById("avantages").innerHTML = "Acura";
-}
-function avantages()
-{
-//document.getElementById("details").innerHTML = "Acura5";
-}
-$(function(){$("#ticker01").liScroll();});
-javascript:window.history.forward(1);
 var id_restaurant = localStorage.getItem("id_restaurant");
 var nom_restaurant = localStorage.getItem("nom_restaurant");
-var restaurant = localStorage.getItem("restaurant");
+$("#image").attr("src","http://ws-ifsproject2016.rhcloud.com/img/"+id_restaurant+".png");
 var IDClient = localStorage.getItem("IDClient");
+var p=localStorage.getItem("username");
 var url= "http://ws-ifsproject2016.rhcloud.com/server.php/affiche_client";
 var pl = new SOAPClientParameters();
 pl.add("nom_restaurant", nom_restaurant);
 pl.add("id_restaurant", id_restaurant);
 pl.add("IDClient", IDClient);
-SOAPClient.invoke(url,"affiche_client", pl, false, affiche_callBack);		
+SOAPClient.invoke(url,"affiche_client", pl, false, affiche_callBack);	
 function affiche_callBack(s)	
 {
-document.getElementById("text").innerHTML = restaurant;
 $("#points").append(s.tab.point+" Points");
-var test = s.tab.offre.split("#");
-var i=0;
-while (i < (test.length))
-{
-$("#avantages").append("<h1>"+test[i]+"</h1><br>");
-i=i+1;
+$("#nom").append("<h1>"+s.tab.rest+"</h1>");
+localStorage.setItem("codebarre",s.tab.CodeBarre);	
 }
+function avantages()
+{
+$( "#carte" ).empty();
+$( "#offre" ).empty();
+$( "#avantage" ).empty();
+$("#avantage").append("<H1>1 Scan = 10 Pts</h1>");
+}
+function offre()
+{
+$( "#carte" ).empty();
+$( "#offre" ).empty();
+$( "#avantage" ).empty();
+$("#offre").append("<H1>20 Pts = 1 coffée offerts</h1>");
+}
+
+function macarte()
+{
+$( "#carte" ).empty();
+$( "#offre" ).empty();
+$( "#avantage" ).empty();
+var codebarre = localStorage.getItem("codebarre");
+$("#carte").append("<center><img src='http://chart.googleapis.com/chart?chs=150x150&cht=qr&chl="+codebarre+"' style='width:70%; padding-top:10px;'><br><h1>"+codebarre+"</h1></center>");
 }
 </script>
 </html>

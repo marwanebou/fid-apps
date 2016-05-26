@@ -1,4 +1,4 @@
-javascript:window.history.forward(1);
+document.forms["formulaire"]["Nom"].value = localStorage.getItem("username");
 function login_client()
 {
 $.mobile.loading( "show", {

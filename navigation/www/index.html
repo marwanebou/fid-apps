@@ -1,34 +1,33 @@
 <html>
     <head>
         <meta charset="utf-8" />
-		<meta name="format-detection" content="telephone=no" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="text/javascript" src="js/fastclick.js"></script>
-	    <script type="text/javascript" src="https://maps.google.com/maps/api/js"></script> 
-		<link rel="stylesheet"  href="libs/jQM-flat/jquery.mobile.flatui.css">
-		<link rel="stylesheet" type="text/css" href="css/maps.css" />
-		<script type="text/javascript" src="libs/jquery-2.0.3.min.js"></script>
-		<script type="text/javascript" src="libs/jQueryMobile/jquery.mobile-1.3.2.min.js"></script>
-
+		<meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=medium-dpi" />
+	    <script type="text/javascript" src="https://maps.google.com/maps/api/js"></script>
 </head>
 <body>
+<script>
+$(function(){FastClick.attach(document.body);});
+</script>
 <div id="map-page" data-role="page">
 <div id="heade" data-role="header" data-position="fixed">
     <ul id="recherche1" class="ui-filterable" data-role="listview"  data-filter="true" data-filter-placeholder="Recherche" data-theme="f" data-filter-reveal="true" >
 	</ul>
 </div>  
-		<div id="map-canvas">
-		</div>
-		<div ="erreur">
-		</div>
-		<div data-role="footer" data-position="fixed">
-		  <div id="navbar" data-role="navbar">
-            <ul>
-             <li><a id="map-button"  href='#map-page'  data-icon="flat-location" data-theme="b" >Map</a></li>
-             <li><a id="list-button" href='#index' data-icon="flat-menu">List</a></li>
-			</ul>
-          </div>
-          </div>
+<div id="map-canvas">
+</div>
+<div id="erreur">
+</div>
+<div id="footer" data-role="footer" data-id="footer2" data-position="fixed" data-tap-toggle="false">
+	<div id="navbar" data-role="navbar">
+	  <ul>
+		<li><a id="map-button"   data-icon="flat-location" data-theme="b">Map</a></li>
+		<li><a id="list-button" href='#index' data-icon="flat-menu" >List</a></li>
+	  </ul>
+	</div>
+</div>
 </div> 
 <div id="index" data-role="page" >
   <div id="heade" data-role="header" data-position="fixed">
@@ -36,26 +35,26 @@
 	</ul>
   </div>
   <div data-role="main" class="ui-content">
-  <div > 
-	  <ul id="zoneresto" data-role='listview' data-inset='true'>
-	  </ul>
+		  <ul id="zoneresto" data-ajax="false" data-role="listview" data-inset="true">
+		  </ul>
   </div>
-  </div>
-  <div data-role="footer" data-position="fixed">
+ <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
     <div id="navbar" data-role="navbar">
-                        <ul>
-       <li><a id="map-button"  href='#map-page' data-icon="flat-location" >Map</a></li>
-       <li><a id="list-button" href='#index' data-icon="flat-menu" data-theme="b">List</a></li>
-						</ul>
+       <ul>
+			<li><a id="map-button"  href='#map-page' data-icon="flat-location" >Map</a></li>
+			<li><a id="list-button"  data-icon="flat-menu" data-theme="b">List</a></li>
+		</ul>
     </div>
   </div>
 </div>
 </body> 
+		<link rel="stylesheet" type="text/css" href="css/maps.css"/>		
+		<link rel="stylesheet"  href="libs/jQM-flat/jquery.mobile.flatui.css">
+		<script type="text/javascript" src="libs/jquery-2.0.3.min.js"></script>
+		<script type="text/javascript" src="libs/jQueryMobile/jquery.mobile-1.3.2.min.js"></script>
 		<SCRIPT language='javascript' src='js/soapclient.js'></SCRIPT>
-		<script>
-		javascript:window.history.forward(1);
-		localStorage.clear();
-		function initialize() { 
+<script>
+function initialize() { 
 				$.mobile.loading( "show", {
 				text: "loading..",
 				textVisible: true,
@@ -121,25 +120,26 @@
 				}
 				navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});			
 			}
-			google.maps.event.addDomListener(window, 'load', initialize); 		
-		var url1= "http://ws-ifsproject2016.rhcloud.com/server.php/Affiche_restaurant";
-		var pl = new SOAPClientParameters();
-		SOAPClient.invoke(url1,"Affiche_restaurant", pl, false, restau_callBack);
-		function restau_callBack(a)
-		{    
-		  localStorage.setItem("list", a.restaurant);
-		  var mytabex=a.restaurant.split("#");
-		  var i=0;
-		  var id_restaurant="";
-		  while (i < ((mytabex.length))-6) 
-			  { 
-				id_restaurant="restaurant_"+mytabex[i+5]+"="+mytabex[i];
-				$("#zoneresto").append("<li><a href='accueil.html?restaurant="+id_restaurant+"'><img src='http://ws-ifsproject2016.rhcloud.com/img/"+mytabex[i+5]+".png'><h2>"+mytabex[i]+"</h2></a></li><br>");
-				$("#recherche").append("<li><a href='accueil.html?restaurant="+id_restaurant+"'>"+mytabex[i]+"</a></li>");
-				$("#recherche1").append("<li><a href='accueil.html?restaurant="+id_restaurant+"'>"+mytabex[i]+"</a></li>");
+			google.maps.event.addDomListener(window, 'load', initialize); 
+var url1= "http://ws-ifsproject2016.rhcloud.com/server.php/Affiche_restaurant";
+var pl = new SOAPClientParameters();
+SOAPClient.invoke(url1,"Affiche_restaurant", pl, false, restau_callBack);
+function restau_callBack(a)
+{    
+		 localStorage.setItem("list",a.restaurant);
+		 var mytabex=a.restaurant.split("#");
+		 var i=0;
+		 var id_restaurant= "";
+		 while (i < ((mytabex.length)-6) )
+			  {
+			    id_restaurant="restaurant_"+mytabex[i+5];
+				$("#zoneresto").append("<li><a onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"'><img src='http://ws-ifsproject2016.rhcloud.com/img/"+mytabex[i+5]+".png'><h2>"+mytabex[i]+"</h2></a></li><br>");
+				$("#recherche").append("<li><a onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"'>"+mytabex[i]+"</a></li>");
+				$("#recherche1").append("<li><a onclick=window.location.href='accueil.html?restaurant="+id_restaurant+"'>"+mytabex[i]+"</a></li>");
 				i=i+6;
 			  }
-		}		
-		</script>   
-<script type="text/javascript" src="cordova.js"></script>
+}		
+</script> 
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
 </html>

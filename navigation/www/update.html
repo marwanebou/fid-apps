@@ -32,8 +32,8 @@ $(function(){FastClick.attach(document.body);});
 		<SCRIPT language='javascript' src='js/soapclient.js'></SCRIPT>
 		<script type="text/javascript">
 		javascript:window.history.forward(1);
-document.forms["formulaire"]["Password"].value = localStorage.getItem("password");
-document.forms["formulaire"]["Nom"].value = localStorage.getItem("username");
+		document.forms["formulaire"]["Password"].value = localStorage.getItem("password");
+		document.forms["formulaire"]["Nom"].value = localStorage.getItem("username");
 		function update_info()
 		{
 		var url= "http://ws-ifsproject2016.rhcloud.com/server.php/update_login_password";
